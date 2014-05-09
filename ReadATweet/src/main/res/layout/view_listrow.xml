@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/rl_listbackground"
+    >
+<!-- Plaatje aan de linkerkant -->
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/iv_listimage"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher"
+
+
+        />
+<!-- linearlayout die twee textviews plaatst-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv_listimage"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="username"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="5dp"
+            android:text="@string/lorem"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:id="@+id/tv_subtitle" />
+    </LinearLayout>
+</RelativeLayout>
