@@ -9,8 +9,8 @@
         <option name="gradleHome" value="$USER_HOME$/Apps" />
         <option name="modules">
           <set>
-            <option value="C:\Users\Jasper\Documents\GitHub\Studucation" />
-            <option value="C:\Users\Jasper\Documents\GitHub\Studucation\ReadATweet" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ReadATweet" />
           </set>
         </option>
       </GradleProjectSettings>

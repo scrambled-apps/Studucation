@@ -2,7 +2,6 @@ package com.studucation.readatweet;
 
 import com.google.gson.annotations.SerializedName;
 
-
 public class TwitterUser {
 
 	@SerializedName("screen_name")
