@@ -29,12 +29,12 @@ public class Splash extends Activity {
         ivron.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),getResources().getString(R.string.hello_world),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),getResources().getString(R.string.hello_world),Toast.LENGTH_SHORT).show();
 
-                // door naar nieuwe intent
-                Intent i = new Intent(Splash.this, MainActivity.class);
-                a.startActivity(i);
-
+                // door naar nieuwe intent.
+//                Intent i = new Intent(Splash.this, MainActivity.class);
+//                a.startActivity(i);
+//
 
             }
         });

@@ -2,6 +2,8 @@ package com.studucation.readatweet;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,14 +71,15 @@ public class ListViewAdapter extends BaseAdapter {
 
         //nu is alles ingeladen!
         // nu gaan we nog even iets fancies met de achtergrondkleur doen
-//        int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
-//        colors[0] = R.color.red;
-//        colors[1] = R.color.white;
-//        colors[2] = R.color.blue;
+        int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
+        Resources res = a.getResources();
+        colors[0] = res.getColor(R.color.red);
+        colors[1] = res.getColor(R.color.white);
+        colors[2] = res.getColor(R.color.blue);
 //
 //        //zet als achtergrondkleur een van de wisselende kleurtjes
-//        RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
-//        rl.setBackgroundColor(colors[i%colors.length]);
+        RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
+        rl.setBackgroundColor(colors[i%colors.length]);
 
 
         return vi;
