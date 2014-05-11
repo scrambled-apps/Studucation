@@ -62,7 +62,7 @@ public class ImageLoader extends AsyncTask<Void, Void, Boolean >{
 	protected void onPostExecute(Boolean succes) {
 		// TODO Auto-generated method stub
 		super.onPostExecute(succes);
-		System.out.println("succes = "+succes);
+
 		if(succes && iv.getTag().equals(uniqueid)){
 
 			iv.setAdjustViewBounds(true);

@@ -62,7 +62,6 @@ public class ListViewAdapter extends BaseAdapter {
         //plaatje inladen (dit gaat iets anders dan text, dit gaat Asynchroon om vertragingen tegen te gaan)
         ImageView image = (ImageView) vi.findViewById(R.id.iv_listimage);
         ImageLoader iLoad = new ImageLoader(tweet.getUser().getProfileImageUrl(),image);
-//        iLoad.SetMaxSize(70, 70); //niet te groot
         iLoad.execute();
 
         image.setMinimumWidth(50);
@@ -70,14 +69,14 @@ public class ListViewAdapter extends BaseAdapter {
 
         //nu is alles ingeladen!
         // nu gaan we nog even iets fancies met de achtergrondkleur doen
-        int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
-        colors[0] = R.color.red;
-        colors[1] = R.color.white;
-        colors[2] = R.color.blue;
-
-        //zet als achtergrondkleur een van de wisselende kleurtjes
-        RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
-        rl.setBackgroundColor(colors[i%colors.length]);
+//        int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
+//        colors[0] = R.color.red;
+//        colors[1] = R.color.white;
+//        colors[2] = R.color.blue;
+//
+//        //zet als achtergrondkleur een van de wisselende kleurtjes
+//        RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
+//        rl.setBackgroundColor(colors[i%colors.length]);
 
 
         return vi;
