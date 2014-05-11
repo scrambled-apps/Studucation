@@ -18,7 +18,7 @@
 
 
         />
-<!-- linearlayout die twee textviews plaatst-->
+<!-- linearlayout die twee textviews plaatst, dit zodat alles mooi is uitgelijnd-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

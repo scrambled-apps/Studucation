@@ -1,6 +1,7 @@
 package com.studucation.readatweet;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -45,13 +47,16 @@ public class ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
+    /**
+     * Hier wordt
+     */
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View vi = view;
 
         vi = inflater.inflate(R.layout.view_listrow, null); //hier wordt één listrow "opgeblazen", deze gaan we nu vullen
 
-        Tweet tweet = twits.get(i); // één bericht pakken (Tweet object)
+        final Tweet tweet = twits.get(i); // één bericht pakken (Tweet object)
 
         // title pakken en hier de username in stoppen
         TextView title = (TextView) vi.findViewById(R.id.tv_title);
@@ -70,6 +75,9 @@ public class ListViewAdapter extends BaseAdapter {
         image.setMinimumHeight(50);
 
         //nu is alles ingeladen!
+
+/*
+
         // nu gaan we nog even iets fancies met de achtergrondkleur doen
         int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
         Resources res = a.getResources();
@@ -80,7 +88,40 @@ public class ListViewAdapter extends BaseAdapter {
 //        //zet als achtergrondkleur een van de wisselende kleurtjes
         RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
         rl.setBackgroundColor(colors[i%colors.length]);
+*/
 
+
+        // add button listener
+        vi.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                // custom dialog
+                final Dialog dialog = new Dialog(a);
+                dialog.setContentView(R.layout.dialog_viewtweet);
+
+
+                String dialogTitle = "Tweet send at "+convertString(tweet.getDateCreated());
+                dialog.setTitle(dialogTitle);
+
+
+
+
+
+                // set the custom dialog components - text, image and button
+                TextView text = (TextView) dialog.findViewById(R.id.tv_detail_subtitle);
+                text.setText(stripHtml(tweet.getText()));
+                ImageView image = (ImageView) dialog.findViewById(R.id.iv_smallpic);
+                ImageLoader iLoad = new ImageLoader(tweet.getUser().getProfileImageUrl(),image);
+                iLoad.execute();
+
+               TextView title = (TextView) dialog.findViewById(R.id.tv_detail_title);
+                title.setText(tweet.getUser().getName());
+
+                dialog.show();
+            }
+        });
 
         return vi;
     }
@@ -88,5 +129,11 @@ public class ListViewAdapter extends BaseAdapter {
 
     public String stripHtml(String html) {
         return Html.fromHtml(html).toString();
+    }
+
+    public String convertString(String input){
+        String date = input.substring(0,10);
+        date= date + " "+input.substring(input.length()-4,input.length());
+        return date;
     }
 }

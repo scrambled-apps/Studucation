@@ -22,19 +22,25 @@ public class Splash extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) { //<-- oncreate: wanneer de activity wordt aangemaakt
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash); //<-- hier wordt layout file activity_splash aangemaakt
+
+
+        setContentView(R.layout.activity_splash); //<-- hier wordt layout file activity_splash gebruikt
+
+
+
+        // hier gaan we afhandelen wat er gebeurt als je op de afbeelding klikt
         final Context a = this;
-        //nu gaan we zorgen dat er iets gebeurd als we op ron klikken
         ImageView ivron = (ImageView) findViewById(R.id.iv_splash_ron);
         ivron.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),getResources().getString(R.string.hello_world),Toast.LENGTH_SHORT).show();
+
+//                Toast.makeText(getApplicationContext(),getResources().getString(R.string.hello_world),Toast.LENGTH_SHORT).show();
 
                 // door naar nieuwe intent.
-//                Intent i = new Intent(Splash.this, MainActivity.class);
-//                a.startActivity(i);
-//
+                Intent i = new Intent(Splash.this, MainActivity.class);
+                a.startActivity(i);
+
 
             }
         });
