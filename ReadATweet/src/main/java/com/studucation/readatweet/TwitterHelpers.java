@@ -3,7 +3,7 @@ package com.studucation.readatweet;
 import android.util.Base64;
 import android.util.Log;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

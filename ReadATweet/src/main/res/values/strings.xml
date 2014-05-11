@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">ReadATweet</string>
-    <string name="hello_world">that's how i roll</string>
+    <string name="hello_world">thats how i roll</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_twitter_list">TwitterList</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vestibulum molestie magna, auctor pharetra nulla consectetur vitae. Nam placerat feugiat lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed quis turpis ac tortor ullamcorper pellentesque nec congue arcu. Nulla non ligula ac tellus mattis euismod. Sed pellentesque congue molestie. Mauris viverra erat ultricies nibh consectetur ultrices. Donec sed eros eu quam faucibus ornare at in ante. Mauris pretium eros elit, eu sollicitudin ipsum porta ac.</string>
