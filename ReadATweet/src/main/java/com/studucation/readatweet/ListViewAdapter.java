@@ -48,15 +48,17 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     /**
-     * Hier wordt
+     * Dit is de functie die aangeeft hoe één rij in de listview er uit ziet
      */
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View vi = view;
 
-        vi = inflater.inflate(R.layout.view_listrow, null); //hier wordt één listrow "opgeblazen", deze gaan we nu vullen
+        //hier wordt één listrow "opgeblazen", deze gaan we nu vullen met layout "view_listrow"
+        vi = inflater.inflate(R.layout.view_listrow, null);
 
-        final Tweet tweet = twits.get(i); // één bericht pakken (Tweet object)
+        // één bericht pakken (Tweet object)
+        final Tweet tweet = twits.get(i);
 
         // title pakken en hier de username in stoppen
         TextView title = (TextView) vi.findViewById(R.id.tv_title);
@@ -76,7 +78,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         //nu is alles ingeladen!
 
-/*
+/************************ dit codeblok doet iets met de kleurtjes van de lijst
 
         // nu gaan we nog even iets fancies met de achtergrondkleur doen
         int[] colors = new int[3]; //array met kleuren, we vullen het met rood wit blauw
@@ -84,53 +86,66 @@ public class ListViewAdapter extends BaseAdapter {
         colors[0] = res.getColor(R.color.red);
         colors[1] = res.getColor(R.color.white);
         colors[2] = res.getColor(R.color.blue);
-//
-//        //zet als achtergrondkleur een van de wisselende kleurtjes
+
+         //zet als achtergrondkleur een van de wisselende kleurtjes
         RelativeLayout rl = (RelativeLayout) vi.findViewById(R.id.rl_listbackground);
         rl.setBackgroundColor(colors[i%colors.length]);
-*/
+******************************Einde codeblok***********/
 
+/************************* dit codeblok doet iets met de klik op een item
 
-        // add button listener
+        // hieronder staat wat er gebeurt als je op een listviewitem klikt
         vi.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                // custom dialog
+                // Hier wordt een dialoog schermpje gemaakt. Dit is standaard android code
                 final Dialog dialog = new Dialog(a);
+
+                // hier stoppen we weer onze eigen layout in
                 dialog.setContentView(R.layout.dialog_viewtweet);
 
-
+                // een dialog heeft altijd een titel
                 String dialogTitle = "Tweet send at "+convertString(tweet.getDateCreated());
                 dialog.setTitle(dialogTitle);
 
-
-
-
-
-                // set the custom dialog components - text, image and button
+                // hier onder weer inladen van data in de views
                 TextView text = (TextView) dialog.findViewById(R.id.tv_detail_subtitle);
                 text.setText(stripHtml(tweet.getText()));
+
                 ImageView image = (ImageView) dialog.findViewById(R.id.iv_smallpic);
                 ImageLoader iLoad = new ImageLoader(tweet.getUser().getProfileImageUrl(),image);
                 iLoad.execute();
 
-               TextView title = (TextView) dialog.findViewById(R.id.tv_detail_title);
+                TextView title = (TextView) dialog.findViewById(R.id.tv_detail_title);
                 title.setText(tweet.getUser().getName());
 
+                // de volgende regel is nodig om de dialog daadwerkelijk te laten zien
                 dialog.show();
             }
         });
 
+         ***********************einde codeblok************/
+
         return vi;
     }
 
-
+    /**
+     * deze functie zet HTML format strings om naar normale strings
+     * @param html
+     * @return
+     */
     public String stripHtml(String html) {
+
         return Html.fromHtml(html).toString();
     }
 
+    /**
+     * deze functie converteert een twitter datastring naar een leesbare datastring
+     * @param input
+     * @return
+     */
     public String convertString(String input){
         String date = input.substring(0,10);
         date= date + " "+input.substring(input.length()-4,input.length());

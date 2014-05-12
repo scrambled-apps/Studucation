@@ -25,12 +25,8 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twitterlist);
-
+        //het object listview koppelen aan de listview uit de layout
         listView = (ListView) findViewById(R.id.listView);
-
-
-
-
 
 
         downloadTweets(myFavTwitterAccount);
@@ -64,6 +60,7 @@ public class MainActivity extends Activity {
     public void handleLoadedTweets(Twitter twits) {
         Log.d("LOG_TAG ", twits.toString());
 
+        //hier wordt de data in de listviewadapter in de lijst in MainActivity gezet
         ListViewAdapter adapter = new ListViewAdapter(this,twits);
         listView.setAdapter(adapter);
 

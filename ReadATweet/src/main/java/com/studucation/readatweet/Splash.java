@@ -2,23 +2,16 @@ package com.studucation.readatweet;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Splash extends Activity {
 
-    //Dit stukje code wordt gerund bij het opstarten van deze activity
+
     @Override
     protected void onCreate(Bundle savedInstanceState) { //<-- oncreate: wanneer de activity wordt aangemaakt
         super.onCreate(savedInstanceState);
@@ -27,26 +20,33 @@ public class Splash extends Activity {
         setContentView(R.layout.activity_splash); //<-- hier wordt layout file activity_splash gebruikt
 
 
-
         // hier gaan we afhandelen wat er gebeurt als je op de afbeelding klikt
         final Context a = this;
-        ImageView ivron = (ImageView) findViewById(R.id.iv_splash_ron);
+        ImageView ivron = (ImageView) findViewById(R.id.iv_splash_ron); //koppelen view object "ivron" aan view uit layout
+
+        //hieronder staat wat er gebeurt als je op het plaatje klikt
         ivron.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-//                Toast.makeText(getApplicationContext(),getResources().getString(R.string.hello_world),Toast.LENGTH_SHORT).show();
+                String showthistext = "Good morning San Diego!"; //de weer te geven text
+
+                //hieronder een Toast: dit is een simpele manier om dingen aan de gebruiker te laten zien
+                Toast.makeText(getApplicationContext(),
+                        showthistext
+                        ,Toast.LENGTH_SHORT).show();
 
                 // door naar nieuwe intent.
-                Intent i = new Intent(Splash.this, MainActivity.class);
-                a.startActivity(i);
+//                Intent i = new Intent(Splash.this, MainActivity.class);
+//                a.startActivity(i);
 
 
             }
         });
 
     }
-
+    ////////////////////
+    //ALLES HIERONDER NEGEREN////////////
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
